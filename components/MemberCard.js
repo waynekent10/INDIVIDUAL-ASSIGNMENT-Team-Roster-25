@@ -11,14 +11,14 @@ function MemberCard({ memberObj, onUpdate }) {
     }
   };
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={memberObj.image} />
       <Card.Body>
         <Card.Title>{memberObj.name}</Card.Title>
-        <Link href={`/member/${memberObj.firebaseKey}`} passHref>
+        <Link href={`/team/${memberObj.firebaseKey}`} passHref>
           <Button variant="success" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
+        <Link href={`/team/edit/${memberObj.firebaseKey}`} passHref>
           <Button variant="warning" className="m-2">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisMember} className="m-2">DELETE</Button>
