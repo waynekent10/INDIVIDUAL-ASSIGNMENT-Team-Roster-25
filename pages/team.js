@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useAuth } from '../utils/context/authContext';
-import MemberCard from '../components/MemberCard';
+import MemberCard from '../components/Mambers';
 import { getMembers } from '../api/fantasyData';
 
 export default function TeamView() {

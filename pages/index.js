@@ -1,9 +1,7 @@
-import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import { getMembers } from '../api/fantasyData';
-import MemberCard from '../components/MemberCard';
+import MemberCard from '../components/Mambers';
 
 function Home() {
   const [members, setMembers] = useState([]);
@@ -20,9 +18,6 @@ function Home() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/team/new" passHref>
-        <Button>Add A Member</Button>
-      </Link>
       <div className="d-flex flex-wrap">
         {members.map((member) => (
           <MemberCard key={member.firebaseKey} memberObj={member} onUpdate={getAllTheMembers} />
