@@ -15,13 +15,14 @@ function MemberCard({ memberObj, onUpdate }) {
       <Card.Img variant="top" src={memberObj.image} />
       <Card.Body>
         <Card.Title>{memberObj.name}</Card.Title>
+        <p>{memberObj.role}</p>
         <Link href={`/team/${memberObj.firebaseKey}`} passHref>
-          <Button variant="success" className="m-2">VIEW</Button>
+          <Button variant="success" className="lg">VIEW</Button>
         </Link>
         <Link href={`/team/edit/${memberObj.firebaseKey}`} passHref>
-          <Button variant="warning" className="m-2">EDIT</Button>
+          <Button variant="warning" className="lg">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisMember} className="m-2">DELETE</Button>
+        <Button variant="danger" onClick={deleteThisMember} className="lg">DELETE</Button>
       </Card.Body>
     </Card>
   );
@@ -36,5 +37,3 @@ MemberCard.propTypes = {
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
-
-export default MemberCard;

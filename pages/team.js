@@ -18,7 +18,7 @@ export default function TeamView() {
   return (
     <>
       <header><h1>Team</h1></header>
-      <div>
+      <div className="d-flex flex-wrap">
         {members.map((member) => (
           <MemberCard key={member.firebaseKey} memberObj={member} onUpdate={getAllTheMembers} />
         ))}
