@@ -18,7 +18,7 @@ export default function ViewMember() {
       </div>
       <div className="text-white ms-5 details">
         <h5>{memberDetails.name}</h5>
-        <h5>{memberDetails.role}</h5>
+        <p>{memberDetails.role}</p>
       </div>
     </div>
   );

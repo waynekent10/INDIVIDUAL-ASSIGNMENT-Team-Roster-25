@@ -46,48 +46,50 @@ function MemberForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Member</h2>
+    <><header><h1>Add A Member</h1></header>
+      <Form onSubmit={handleSubmit}>
+        <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Member</h2>
 
-      {/* TITLE INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Enter a Name"
-          name="name"
-          value={formInput.name}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+        {/* TITLE INPUT  */}
+        <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Enter a Name"
+            name="name"
+            value={formInput.name}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
 
-      {/* IMAGE INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Members Image" className="mb-3">
-        <Form.Control
-          type="url"
-          placeholder="Enter an image url"
-          name="image"
-          value={formInput.image}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+        {/* IMAGE INPUT  */}
+        <FloatingLabel controlId="floatingInput2" label="Members Image" className="mb-3">
+          <Form.Control
+            type="url"
+            placeholder="Enter an image url"
+            name="image"
+            value={formInput.image}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
 
-      {/* ROLE INPUT  */}
-      <FloatingLabel controlId="floatingInput3" label="Member Role" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Enter Role"
-          name="price"
-          value={formInput.role}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+        {/* ROLE INPUT  */}
+        <FloatingLabel controlId="floatingInput3" label="Member Role" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Enter Role"
+            name="price"
+            value={formInput.role}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
 
-      {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Member</Button>
-    </Form>
+        {/* SUBMIT BUTTON  */}
+        <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Member</Button>
+      </Form>
+    </>
   );
 }
 
