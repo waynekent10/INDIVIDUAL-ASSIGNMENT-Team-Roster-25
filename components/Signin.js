@@ -15,7 +15,7 @@ function Signin() {
     >
       <h1>What it do!?!</h1>
       <p>Click the button below to view your Team</p>
-      <Button type="button" size="lg" className="secondary" onClick={signIn}>
+      <Button type="button" size="lg" className="btn btn-secondary" onClick={signIn}>
         Sign In
       </Button>
     </div>

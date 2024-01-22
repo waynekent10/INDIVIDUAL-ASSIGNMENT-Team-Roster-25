@@ -79,7 +79,7 @@ function MemberForm({ obj }) {
           <Form.Control
             type="text"
             placeholder="Enter Role"
-            name="price"
+            name="role"
             value={formInput.role}
             onChange={handleChange}
             required
