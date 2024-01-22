@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-bootstrap';
+import { viewMemberDetails } from '../../api/mergedData';
 
 export default function ViewMember() {
   const [memberDetails, setMemberDetails] = useState({});
@@ -8,7 +9,8 @@ export default function ViewMember() {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    ViewMember(firebaseKey).then(setMemberDetails);
+    // eslint-disable-next-line no-undef
+    viewMemberDetails(firebaseKey).then(setMemberDetails);
   }, [firebaseKey]);
 
   return (
