@@ -25,7 +25,7 @@ export default function SearchBar() {
   }, [searchBar]);
   return (
     <div className="d-flex flex-wrap">
-      {searchMembers.map((name) => <MemberCard key={name.firebaseKey} memberObj={name} onUpdate={searchAllMembers} />)}
+      {searchMembers.map((name) => <MemberCard key={name.firebaseKey} nameObj={name} onUpdate={searchAllMembers} />)}
     </div>
   );
 }
