@@ -13,12 +13,12 @@ export default function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (setSearchBar !== '') router.push(`/search/${searchBar}`);
+    if (setSearchBar !== '') router.push(`/searchBar/${searchBar}`);
     setSearchBar('');
   };
   return (
-    <Form className="searchbar" onSubmit={handleSubmit}>
-      <FormControl type="text" placeholder="Search Members here" onChange={handleChange} value={searchBar} style={{ width: '700px' }} />
+    <Form className="search" onSubmit={handleSubmit}>
+      <FormControl type="text" placeholder="Search" onChange={handleChange} value={searchBar} style={{ width: '700px' }} />
     </Form>
   );
 }

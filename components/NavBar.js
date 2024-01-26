@@ -5,6 +5,7 @@ import {
   Navbar, Container, Nav, Button, Form, Row, Col,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+import SearchBar from './SearchBar';
 
 export default function NavBar() {
   return (
@@ -26,14 +27,8 @@ export default function NavBar() {
             <Form inline>
               <Row>
                 <Col xs="auto">
-                  <Form.Control
-                    type="text"
-                    placeholder="Search"
-                    className=" mr-sm-2"
-                  />
-                </Col>
-                <Col xs="auto">
-                  <Button type="submit">Submit</Button>
+                  <SearchBar />
+                  <Button type="search">Search</Button>
                 </Col>
               </Row>
             </Form>

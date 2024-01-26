@@ -4,7 +4,7 @@ import { getMembers } from '../../api/fantasyData';
 import MemberCard from '../../components/Mambers';
 
 export default function SearchBar() {
-  const [searchMember, setSearchMember] = useState([]);
+  const [searchMembers, setSearchMembers] = useState([]);
   const router = useRouter();
   const { searchBar } = router.query;
 
@@ -12,17 +12,20 @@ export default function SearchBar() {
     getMembers().then((members) => {
       const filteredMembers = members.filter((member) => member.name.toLowerCase().includes(searchBar));
 
-      setSearchMember(filteredMembers);
+      setSearchMembers(filteredMembers);
     });
   };
 
   useEffect(() => {
-    searchAllMembers([]);
+    searchAllMembers();
+    return () => {
+      setSearchMembers([]);
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchBar]);
   return (
-    <div>
-      {searchMember.map((name) => <MemberCard key={name.firebaseKey} memberObj={name} onUpdate={searchAllMembers} />)}
+    <div className="d-flex flex-wrap">
+      {searchMembers.map((name) => <MemberCard key={name.firebaseKey} memberObj={name} onUpdate={searchAllMembers} />)}
     </div>
   );
 }
