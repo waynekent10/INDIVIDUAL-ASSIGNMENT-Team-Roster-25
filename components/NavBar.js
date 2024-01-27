@@ -2,9 +2,10 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button, Form, Row, Col,
+  Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+import SearchBar from './SearchBar';
 
 export default function NavBar() {
   return (
@@ -23,20 +24,8 @@ export default function NavBar() {
             <Link passHref href="/team/new">
               <Nav.Link>New</Nav.Link>
             </Link>
-            <Form inline>
-              <Row>
-                <Col xs="auto">
-                  <Form.Control
-                    type="text"
-                    placeholder="Search"
-                    className=" mr-sm-2"
-                  />
-                </Col>
-                <Col xs="auto">
-                  <Button type="submit">Submit</Button>
-                </Col>
-              </Row>
-            </Form>
+            <SearchBar />
+            <Button type="search">Search</Button>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
