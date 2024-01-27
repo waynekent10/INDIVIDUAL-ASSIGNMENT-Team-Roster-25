@@ -1,16 +1,17 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getMembers } from '../../api/fantasyData';
+import { useAuth } from '../../utils/context/authContext';
 import MemberCard from '../../components/Mambers';
 
 export default function SearchBar() {
   const [searchMembers, setSearchMembers] = useState([]);
-  // declares a state variable for search questions using the usestate hook. utilizing an empty array, the setsearch questions function is used to update the value of the searchquestions state
+  const { user } = useAuth();
   const router = useRouter();
   const { searchBar } = router.query;
 
   const searchAllMembers = () => {
-    getMembers().then((members) => {
+    getMembers(user.uid).then((members) => {
       const filteredMembers = members.filter((member) => member.name.toLowerCase().includes(searchBar) || member.role.toLowerCase().includes(searchBar));
       setSearchMembers(filteredMembers);
     });
