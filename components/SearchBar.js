@@ -3,22 +3,21 @@ import React, { useState } from 'react';
 import { Form, FormControl } from 'react-bootstrap';
 
 export default function SearchBar() {
-  const [searchBar, setSearchBar] = useState('');
+  const [searchInput, setSearchInput] = useState('');
 
   const router = useRouter();
 
   const handleChange = (e) => {
-    setSearchBar(e.target.value.toLowerCase());
+    setSearchInput(e.target.value.toLowerCase());
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (setSearchBar !== '') router.push(`/searchBar/${searchBar}`);
-    setSearchBar('');
+    if (setSearchInput !== '') router.push(`/search/${searchInput}`);
   };
   return (
     <Form className="search" onSubmit={handleSubmit}>
-      <FormControl type="text" placeholder="Search" onChange={handleChange} value={searchBar} style={{ width: '700px' }} />
+      <FormControl type="text" placeholder="Search" onChange={handleChange} value={searchInput} style={{ width: '700px' }} />
     </Form>
   );
 }

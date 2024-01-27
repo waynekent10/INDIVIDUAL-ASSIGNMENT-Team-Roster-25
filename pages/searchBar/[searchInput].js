@@ -2,15 +2,17 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getMembers } from '../../api/fantasyData';
 import MemberCard from '../../components/Mambers';
+import { useAuth } from '../../utils/context/authContext';
 
-export default function SearchBar() {
+export default function Search() {
   const [searchMembers, setSearchMembers] = useState([]);
   const router = useRouter();
-  const { searchBar } = router.query;
+  const { user } = useAuth;
+  const { searchInput } = router.query;
 
   const searchAllMembers = () => {
-    getMembers().then((members) => {
-      const filteredMembers = members.filter((member) => member.name.toLowerCase().includes(searchBar));
+    getMembers(user.uid).then((members) => {
+      const filteredMembers = members.filter((member) => member.name.toLowerCase().includes(searchInput));
 
       setSearchMembers(filteredMembers);
     });
@@ -22,10 +24,10 @@ export default function SearchBar() {
       setSearchMembers([]);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchBar]);
+  }, [searchInput]);
   return (
     <div className="d-flex flex-wrap">
-      {searchMembers.map((name) => <MemberCard key={name.firebaseKey} nameObj={name} onUpdate={searchAllMembers} />)}
+      {searchMembers.map((obj) => <MemberCard key={obj.firebaseKey} nameObj={obj} onUpdate={searchAllMembers} />)}
     </div>
   );
 }
